@@ -35,8 +35,10 @@ ul {
 }
 
 li {
-  margin: 10px 0;
+  height: 2.5rem;
   border-bottom: 0.2rem solid var(--colorLineas);
+  margin: 10px 0;
+  padding-bottom: 3rem;
 }
 img {
   max-width: 100%;
@@ -58,7 +60,7 @@ img {
   display: flex;
   justify-content: space-around;
   max-width: 800px;
-  margin: 2rem 2rem;
+  margin: 0 2rem;
   background-color: var(--colorPrincipal);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -67,27 +69,25 @@ img {
 .libreta-head {
   color: #fefeff;
   background-color: var(--colorSecundario);
+  margin-top: 2rem;
   text-align: center;
 }
 .logo-shake {
   position: relative;
   width: 25rem; /* Establece el ancho deseado para el contenedor */
-  height: 10rem; /* Establece el alto deseado para el contenedor */
+  height: auto; /* Establece el alto deseado para el contenedor */
   overflow: hidden;
-  z-index: 1;
 }
 .logo-shake img {
   width: 100%;
-  height: 100%;
+  height: 1000%;
   object-fit: cover;
 }
 .letrero-ordenes {
-  font-size: 2rem;
-  position: absolute;
-  top: 22%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
+  font-size: 1.95rem;
+}
+.letrero-ordenes p {
+    margin: 0;
 }
 .pagina {
   border: none;

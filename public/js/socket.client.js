@@ -1,9 +1,17 @@
+import { nombresDisponibles } from "./turnos.js";
 const socket = io();
 
-const txtMensaje = document.querySelector('#txtMensaje');
-const btnEnviar = document.querySelector('#enviar');
-
+let nombres = [];
+let cantidad = 0;
 //Obtenesmos la respuesta del backend
 socket.on('pedidos', ( clientes )=>{
-    console.log(clientes)
+    if( cantidad != clientes.length ){
+      console.log(clientes)
+      cantidad = clientes.length;
+      return;
+    }
+
+
+
+//  console.log(nombre)
 })

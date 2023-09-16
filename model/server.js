@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const { createDataBase } = require("../db/config.js");
 
-const { socketController } = require('../controller/socket.controller.js')
+const { socketController, consultarTabla } = require('../controller/socket.controller.js')
 
 class Server {
 
@@ -11,6 +11,9 @@ class Server {
     this.port   = process.env.PORT;
     this.server = require('http').createServer( this.app );
     this.io     = require('socket.io')(this.server);
+    this.paths  = {
+      turno: '/api/clientes'
+    }
     //Ejecutamos los middlewares
     this.middlewares();
 
@@ -18,6 +21,8 @@ class Server {
     this.sockets();
 
     this.dataBase();
+
+    this.router();
   }
 
   middlewares() {
@@ -38,8 +43,11 @@ class Server {
   }
 
   sockets(){
-    
     this.io.on('connection', socketController);
+  }
+
+  router(){
+    this.app.use( this.paths.turno, require('../routes/clientes.routes.js'))
   }
 
   listen() {

@@ -10,7 +10,7 @@ const db = {
 const createDataBase = async() => {
   try {
     const pool = await mysql.createPool(db);
-    console.log('Base de datos en línea');
+    // console.log('Base de datos en línea');
     return pool;
   } catch (error) {
     throw new Error( error )
