@@ -4,20 +4,18 @@ const paginaDerecha = document.querySelector(".pagina-derecha ul");
 // Inicializa un contador para realizar un seguimiento del número de tareas
 let contadorNombres = 1;
 
-export const nombresDisponibles =( nombre )=>{
+export const nombresDisponibles =( { id, Nombre } )=>{
+  const nuevoNombre = `<li data-id='${id}'>${Nombre}</li>`;
   
-  const nuevoNombre = document.createElement('li');
-  nuevoNombre.textContent = nombre;
-
-  if( contadorNombres % 2 === 0){
-    paginaDerecha.appendChild( nuevoNombre );
+  if( contadorNombres %2 === 0){
+    paginaDerecha.innerHTML += nuevoNombre;
   } else{
-    paginaIzquierda.appendChild( nuevoNombre );
+    paginaIzquierda.innerHTML += nuevoNombre;
   }
-
-  contadorNombres ++;
+ contadorNombres ++;
 }
 
 const eliminarNombre =( nombre )=>{
 
 }
+ 

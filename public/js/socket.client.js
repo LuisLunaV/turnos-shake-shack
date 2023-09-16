@@ -1,17 +1,19 @@
-import { nombresDisponibles } from "./turnos.js";
+import { nombresDisponibles } from "./publico.js";
 const socket = io();
+const nombrePagina = window.location.pathname;
 
-let nombres = [];
 let cantidad = 0;
-//Obtenesmos la respuesta del backend
+let nombres = [];
+
 socket.on('pedidos', ( clientes )=>{
+
     if( cantidad != clientes.length ){
-      console.log(clientes)
+      if( nombrePagina === '/publico.html')
+      clientes.forEach(( value ) => {
+           nombresDisponibles( value );
+      });
       cantidad = clientes.length;
       return;
     }
 
-
-
-//  console.log(nombre)
-})
+});

@@ -13,6 +13,7 @@ class Turnos {
             console.error('Error al ejecutar la consulta: ' + err.message);
             return;
           }
+          
          resolve( filtrarDatos(result) )
           
         });

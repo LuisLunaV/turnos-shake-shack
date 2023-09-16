@@ -2,6 +2,7 @@ const filtrarDatos =( data )=>{
   // Mapear y filtrar los resultados de la consulta
   const resp = data.map((value) => {
     return {
+      id: value.Local_id,
       Nombre: value.Local_Cliente,
       status: value.Local_Status,
     };
