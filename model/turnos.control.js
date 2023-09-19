@@ -1,4 +1,4 @@
-const filtrarDatos =require('../utils/filtrar-datos.js');
+const { filtrarDatos } =require('../utils/index.js');
 
 class Turnos {
   constructor() {
@@ -22,6 +22,19 @@ class Turnos {
         reject( error )
       }
     });
+  }
+
+  actualizarTurno(db, id ){
+
+    return new Promise( async ( resolve, reject )=>{
+      try {
+        db.query("UPDATE NIPS SET Local_Status = 0 WHERE Local_id = ?",[id], (err, result)=>{
+          resolve(result)
+        })
+      } catch (error) {
+        reject( error );
+      }
+    })
   }
 }
 

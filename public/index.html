@@ -1,20 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/escritorio.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
     <title>Programa de turnos</title>
-</head>
-<body>
-    <div>
-        <a href="publico.html" target="_blank" >Publico</a>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header-container">
+        <h1 class="cuatro-rem">Bienvenidos al sistema de turnos</h1>
+        <div class="img-container">
+          <img src="./assets/img/shakeshack_logo.png" alt="" />
+        </div>
+      </div>
+      <div class="container-instrucciones">
+        <h1>Instrucciones</h1>
+        <p>
+          1. Al hacer clic en el botón 'Escritorio' accederas a una pantalla
+          donde podrás visualizar la información del cliente actual que está
+          siendo atendido, verificar la cantidad de clientes en cola y encontrar
+          un botón para atender al próximo cliente.
+        </p>
+        <p>
+          2. Al hacer clic en el botón 'Público', se abrirá una pantalla donde
+          podrás ver una lista de clientes que están esperando su pedido.
+        </p>
+      </div>
+
+      <div class="button-container">
+        <a
+          class="btn btn-outline-success btn-principal"
+          href="escritorio.html"
+          target="_blank"
+          >Escritorio</a
+        >
+        <a
+          class="btn btn-outline-success btn-principal"
+          href="publico.html"
+          target="_blank"
+          >Publico</a
+        >
+      </div>
     </div>
-    <div>
-        <a href="escritorio.html" target="_blank" >Escritorio</a>
-    </div>
-    <script src="./socket.io/socket.io.js"></script>
-    <script src="js/socket.client.js" type="module"></script>
-</body>
+  </body>
 </html>
