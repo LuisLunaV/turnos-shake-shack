@@ -1,31 +1,31 @@
-import { imprimirInfoEscritorio } from "./components/escritorio.js";
+import { imprimirInfoEscritorio, sinPedidos } from "./components/escritorio.js";
 const btnSigiuente = document.querySelector(".btn-next");
 
 const socket = io();
 
 const nombres = [];
 
-socket.on("carga-turnos", (turnos) => {
-  console.log(turnos)
-  // if (nombres.length === 0) {
-  //   nombres.push(...turnos);
-    if (turnos[0] && turnos[0].Nombre) {
-      imprimirInfoEscritorio(turnos[0].Nombre, turnos.length);
-      return;
+let cantidad = 0;
+
+socket.on("pedidos", (clientes) => {
+  if (cantidad != clientes.length) {
+    if (nombres.length === 0 ) {
+      nombres.push(...clientes);
+      (nombres[0])?imprimirInfoEscritorio(nombres[0].Nombre, nombres.length):'';
     }
-  // }
+    cantidad = clientes.length;
+  }
 });
 
 btnSigiuente.addEventListener("click", () => {
   if (nombres.length > 0) {
     const { id } = nombres.shift();
-    console.log(nombres[0]);
-    if (nombres.length > 0) {
-      imprimirInfoEscritorio(nombres[0].Nombre, nombres.length);
-    }
+    
+    (nombres.length > 0)?imprimirInfoEscritorio(nombres[0].Nombre, nombres.length):sinPedidos();
+  
     socket.emit("siguiente-turno", id);
-    setTimeout(() => {
-      socket.emit("actualizar", true);
-    }, 200);
+    // setTimeout(() => {
+    //   socket.emit("actualizar", true);
+    // }, 200);
   }
 });

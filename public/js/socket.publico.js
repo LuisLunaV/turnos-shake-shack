@@ -13,11 +13,10 @@ let cantidad = 0;
 socket.on("pedidos", (clientes) => {
   if (cantidad != clientes.length) {
     const turnos = primerosDiez(clientes);
-    socket.emit("primeros-diez", turnos);
 
     if (nombrePagina === "/publico.html") {
       limpiarListaDeTurnos();
-      turnos.forEach(imprimirNombresDisponibles);
+      imprimirNombresDisponibles( turnos )
       cantidad = clientes.length;
       cantidadDeElementosList();
       return;
@@ -25,6 +24,6 @@ socket.on("pedidos", (clientes) => {
   }
 });
 
-socket.on("recargar", (resp) => {
-  if (resp) location.reload();
-});
+// socket.on("recargar", (resp) => {
+//   if (resp) location.reload();
+// });

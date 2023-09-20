@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Programa de turnos</title>
+    <link rel="shortcut icon" href="https://www.shakeshack.com.mx/wp-content/uploads/2019/02/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/styles.css" />
     <link rel="stylesheet" href="styles/escritorio.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
@@ -17,7 +18,7 @@
     <hr>
     <div class="row">
         <div class="col-8">
-            <h4 class="dos-rem">Atendiendo a <small class="text-primary">....</small></h4>
+            <h4 class="dos-rem">Atendiendo a <small id="text-name" class="text-success">....</small></h4>
         
             <button class="btn btn-outline-success btn-next mt-5">
                 Atender al siguiente cliente
@@ -27,7 +28,7 @@
         <div class="col-4 text-center">
             <h4 class="dos-rem">En cola</h4>
             
-            <div class="alert alert-info mt-2 uno-rem">
+            <div id="alert" class="ocultar alert-info mt-2 uno-rem">
                 <span>Ya no hay más clientes</span>
             </div>
 
