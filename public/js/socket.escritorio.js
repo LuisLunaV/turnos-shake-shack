@@ -24,8 +24,6 @@ btnSigiuente.addEventListener("click", () => {
     (nombres.length > 0)?imprimirInfoEscritorio(nombres[0].Nombre, nombres.length):sinPedidos();
   
     socket.emit("siguiente-turno", id);
-    // setTimeout(() => {
-    //   socket.emit("actualizar", true);
-    // }, 200);
+ 
   }
 });

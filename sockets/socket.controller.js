@@ -20,9 +20,6 @@ const socketController = async (cliente) => {
     await turnos.actualizarTurno(db, id);
   });
 
-  // cliente.on("actualizar", (resp) => {
-  //   cliente.broadcast.emit("recargar", resp);
-  // });
 };
 
 module.exports = {

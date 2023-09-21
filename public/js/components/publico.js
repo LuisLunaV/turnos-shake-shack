@@ -1,9 +1,6 @@
 const paginaIzquierda = document.querySelector(".pagina-izquierda ul");
 const paginaDerecha = document.querySelector(".pagina-derecha ul");
 
-// Inicializa un contador para realizar un seguimiento del número de tareas
-let contadorNombres = 1;
-// const imprimirNombresDisponibles = ({ id, Nombre }) => {
 const imprimirNombresDisponibles = (arr) => {
   let contadorNombres = 0;
   arr.forEach((value) => {
