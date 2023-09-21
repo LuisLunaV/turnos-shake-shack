@@ -1,4 +1,4 @@
-export const primerosDiez = (data) => {
-  const primerosDiez = data.slice(0, 20);
-  return primerosDiez;
+export const firstTwenty = (data) => {
+  const firstTwenty = data.slice(0, 20);
+  return firstTwenty;
 };

@@ -1,18 +1,17 @@
-const nombreCliente = document.querySelector("#text-name");
-const totalPendientes = document.querySelector(".lblPendientes");
+const customer     = document.querySelector("#text-name");
+const totalInQueue = document.querySelector(".lblPendientes");
 
-const imprimirInfoEscritorio = (nombre, total ) => {
-  if (nombreCliente.classList.contains("text-danger")) {
-    nombreCliente.classList.replace("text-danger", "text-success");
+const printNameAndTotalInQueue = (name, total ) => {
+  if (customer.classList.contains("text-danger")) {
+    customer.classList.replace("text-danger", "text-success");
   }
-
-  nombreCliente.innerText = nombre;
-  totalPendientes.innerText = total - 1;
+  customer.innerText     = name;
+  totalInQueue.innerText = total - 1;
 };
 
-const sinPedidos = () => {
-  nombreCliente.innerText = "Sin pedidos";
-  nombreCliente.classList.replace("text-success", "text-danger");
+const noOrders = () => {
+  customer.innerText = "Sin pedidos";
+  customer.classList.replace("text-success", "text-danger");
 };
 
-export { imprimirInfoEscritorio, sinPedidos };
+export { printNameAndTotalInQueue, noOrders };

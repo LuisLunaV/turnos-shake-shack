@@ -1,47 +1,53 @@
-const paginaIzquierda = document.querySelector(".pagina-izquierda ul");
-const paginaDerecha = document.querySelector(".pagina-derecha ul");
+const leftPage = document.querySelector(".pagina-izquierda ul");
+const rigthPage   = document.querySelector(".pagina-derecha ul");
 
-const imprimirNombresDisponibles = (arr) => {
-  let contadorNombres = 0;
+const printCustomerList = (arr) => {
+  let positionNumber = 0;
   arr.forEach((value) => {
-    const nuevoNombre = `<li data-id='${value.id}'>${value.Nombre}</li>`;
-    if (contadorNombres % 2 === 0) {
-      paginaIzquierda.innerHTML += nuevoNombre;
+    const nameOfCustomer = `<li data-id='${value.id}'>${value.Nombre}</li>`;
+    if (positionNumber % 2 === 0) {
+      leftPage.innerHTML  += nameOfCustomer;
     } else {
-      paginaDerecha.innerHTML += nuevoNombre;
+      rigthPage.innerHTML += nameOfCustomer;
     }
-    contadorNombres++;
+    positionNumber++;
   });
 };
 
-function limpiarListaDeTurnos() {
-  paginaDerecha.innerHTML = "";
-  paginaIzquierda.innerHTML = "";
+function removeCustomerOfList() {
+  rigthPage.innerHTML = "";
+  leftPage.innerHTML  = "";
 }
 
-function cantidadDeElementosList() {
-  const numElementoIzq = paginaIzquierda.querySelectorAll("li").length;
-  const numElementoDer = paginaDerecha.querySelectorAll("li").length;
-  const elementosFaltantesIzq = 10 - numElementoIzq;
-  const elementosFaltantesDer = 10 - numElementoDer;
+function addEmptyElementToList() {
+  //Contamos los elemento li ocupados de la lista ul.
+  const usedLiEmentsLeft  = leftPage.querySelectorAll("li").length;
+  const usedLiEmentsRigth = rigthPage.querySelectorAll("li").length;
 
-  if (elementosFaltantesIzq > 0) {
-    for (let i = 0; i < elementosFaltantesIzq; i++) {
-      const nuevoLi = document.createElement("li");
-      paginaIzquierda.appendChild(nuevoLi);
+  //Obtenemos la cantidad de elemento li faltantes en cada una de las listas ul.
+  // Cada ul debe tener 10 elementos li: 10 menos cantida de elementos li ocupados
+  const leftAvailableLiElemnt  = 10 - usedLiEmentsLeft;  
+  const rigthAvailableLiElemnt = 10 - usedLiEmentsRigth;
+  
+  //Agregamos elemento li faltantes en la lista izquierda
+  if (leftAvailableLiElemnt > 0) {
+    for (let i = 0; i < leftAvailableLiElemnt; i++) {
+      const newElementLi = document.createElement("li");
+      leftPage.appendChild( newElementLi );
     }
   }
 
-  if (elementosFaltantesDer > 0) {
-    for (let i = 0; i < elementosFaltantesDer; i++) {
-      const nuevoLi = document.createElement("li");
-      paginaDerecha.appendChild(nuevoLi);
+  //Agregamos elemento li faltantes en la lista derecha
+  if (rigthAvailableLiElemnt > 0) {
+    for (let i = 0; i < rigthAvailableLiElemnt; i++) {
+      const newElementLi = document.createElement("li");
+      rigthPage.appendChild( newElementLi );
     }
   }
 }
 
 export {
-  imprimirNombresDisponibles,
-  limpiarListaDeTurnos,
-  cantidadDeElementosList,
+  printCustomerList,
+  removeCustomerOfList,
+  addEmptyElementToList,
 };
