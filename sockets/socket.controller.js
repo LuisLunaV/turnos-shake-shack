@@ -1,23 +1,25 @@
 const { createDataBase } = require("../db/config.js");
-const Turnos = require("../model/turnos.control.js");
+const OderHandler = require("../model/order.controller.js");
 
-const turnos = new Turnos();
+const order = new OderHandler();
 
-const socketController = async (cliente) => {
+const socketController = async ( socket ) => {
   const db = await createDataBase();
 
-  async function ejecutar() {
+  async function startDbMonitoring() {
     setInterval(async () => {
-      obtenerDatos(await turnos.observarCambios(db));
+      getInformation(await order.observeChange(db));
     }, 1000);
   }
-  function obtenerDatos(datos) {
-    cliente.broadcast.emit("pedidos", datos);
+  
+  function getInformation(datos) {
+    socket.broadcast.emit("pedidos", datos);
   }
-  ejecutar();
 
-  cliente.on("siguiente-turno", async (id) => {
-    await turnos.actualizarTurno(db, id);
+  startDbMonitoring();
+
+  socket.on("siguiente-turno", async (id) => {
+    await order.orderUpdate(db, id);
   });
 
 };

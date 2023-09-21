@@ -1,4 +1,4 @@
-const filtrarDatos =( data )=>{
+const filterInformation =( data )=>{
   // Mapear y filtrar los resultados de la consulta
   const resp = data.map((value) => {
     return {
@@ -11,4 +11,4 @@ const filtrarDatos =( data )=>{
   return resp;
 }
 
-module.exports = filtrarDatos;
+module.exports = filterInformation;

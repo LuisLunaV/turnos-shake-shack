@@ -1,11 +1,11 @@
-const { filtrarDatos } =require('../utils/index.js');
+const filterInformation =require('../utils/filter-information.js');
 
-class Turnos {
+class OderHandler {
   constructor() {
-    this.intervalId = null;
-    this.cantidadDePedidos = 0;
+    // this.intervalId = null;
+    // this.numberOfOrders = 0;
   }
-  observarCambios(db) {
+  observeChange(db) {
     return new Promise(async (resolve, reject) => {
       try {
         db.query("SELECT * FROM NIPS", (err, result) => {
@@ -14,7 +14,7 @@ class Turnos {
             return;
           }
           
-         resolve( filtrarDatos(result) )
+         resolve( filterInformation(result) )
           
         });
       } catch (error) {
@@ -24,7 +24,7 @@ class Turnos {
     });
   }
 
-  actualizarTurno(db, id ){
+  orderUpdate(db, id ){
 
     return new Promise( async ( resolve, reject )=>{
       try {
@@ -38,4 +38,4 @@ class Turnos {
   }
 }
 
-module.exports = Turnos;
+module.exports = OderHandler;
