@@ -1,0 +1,76 @@
+.container-libreta{
+  max-width: 100rem;
+  width: 100%;
+    /* width: 73%; */
+}
+
+.libreta-en-espera{
+    border: none;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    height: 48.3rem;
+    margin-right:2rem;
+    margin-top: 11.5rem;
+    margin-bottom: .5rem;
+    padding: 20px;
+    width: 25%;
+}
+.libreta {
+    border: 0;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 2rem;
+    background-color: var(--colorPrincipal);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 70rem;
+  }
+  .libreta-head {
+    color: #fefeff;
+    background-color: var(--colorSecundario);
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .logo-shake {
+    position: relative;
+    width: 25rem; /* Establece el ancho deseado para el contenedor */
+    height: auto; /* Establece el alto deseado para el contenedor */
+    overflow: hidden;
+  }
+  .logo-shake img {
+    width: 100%;
+    height: 1000%;
+    object-fit: cover;
+  }
+  .letrero-ordenes {
+    font-size: 1.95rem;
+  }
+  .letrero-ordenes p {
+      margin: 0;
+  }
+  .pagina {
+    border: none;
+    width: 45%;
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  .pagina h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* Estilos para la página izquierda */
+  .pagina-izquierda {
+    border-radius: 5px 0 0 5px;
+  }
+  
+  /* Estilos para la página derecha */
+  .pagina-derecha {
+    border-radius: 0 5px 5px 0;
+  }
+  
+  
+  

@@ -47,6 +47,21 @@ img {
   display: block;
 }
 
+/* utils */
+.disp-flex-row{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+/* justify-content:flex-start; */
+}
+
+.disp-flex-col{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 /* Principal */
 .header-container{
   display: flex;
@@ -101,69 +116,9 @@ margin-top: 2.5rem;
   margin: 0;
 }
 
-/* libreta */
 .container {
   padding: 0 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.libreta {
-  border: 0;
-  border-radius: 0.5rem;
-  display: flex;
-  justify-content: space-around;
-  max-width: 800px;
-  margin: 0 2rem;
-  background-color: var(--colorPrincipal);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 70rem;
-}
-.libreta-head {
-  color: #fefeff;
-  background-color: var(--colorSecundario);
-  margin-top: 2rem;
-  text-align: center;
-}
-.logo-shake {
-  position: relative;
-  width: 25rem; /* Establece el ancho deseado para el contenedor */
-  height: auto; /* Establece el alto deseado para el contenedor */
-  overflow: hidden;
-}
-.logo-shake img {
-  width: 100%;
-  height: 1000%;
-  object-fit: cover;
-}
-.letrero-ordenes {
-  font-size: 1.95rem;
-}
-.letrero-ordenes p {
-    margin: 0;
-}
-.pagina {
-  border: none;
-  width: 45%;
-  padding: 20px;
-  background-color: #fff;
-}
-
-.pagina h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-/* Estilos para la página izquierda */
-.pagina-izquierda {
-  border-radius: 5px 0 0 5px;
-}
-
-/* Estilos para la página derecha */
-.pagina-derecha {
-  border-radius: 0 5px 5px 0;
-}
-
-
