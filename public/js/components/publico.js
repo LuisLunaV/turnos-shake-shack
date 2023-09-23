@@ -1,53 +1,47 @@
-const leftPage = document.querySelector(".pagina-izquierda ul");
-const rigthPage   = document.querySelector(".pagina-derecha ul");
+import { addElementLiEmpty } from "../utils/add-element-li.js";
+const nextOrders = document.querySelector(".libreta-en-espera ul");
+const leftPage   = document.querySelector(".pagina-izquierda ul");
+const rigthPage  = document.querySelector(".pagina-derecha ul");
 
-const printCustomerList = (arr) => {
-  let positionNumber = 0;
-  arr.forEach((value) => {
-    const nameOfCustomer = `<li data-id='${value.id}'>${value.Nombre}</li>`;
-    if (positionNumber % 2 === 0) {
-      leftPage.innerHTML  += nameOfCustomer;
-    } else {
-      rigthPage.innerHTML += nameOfCustomer;
-    }
-    positionNumber++;
+const printCustomerList = (data) => {
+
+  //Tomamos los ultimos 8 nombres para agregarlos en la lista de 'en espera - onhold'
+  let onHold = data.slice(-8);
+  
+  onHold.forEach((value) => {
+    const nameOfCustomer = `<li data-id='${value.id}'><p>${value.Nombre}</p></li>`;    
+    // Agregamos el nuevo elemento 'nameOfCustomer' al principio del contenido existente. 
+    nextOrders.innerHTML = nameOfCustomer + nextOrders.innerHTML;
   });
+  
+  if (onHold.length === 8) {
+    //Invertimos los elementos del arreglo para irlos imprimiendo de la manera requerida, de arriba hacia abajo. 
+    let readyOrders = data.slice(0, data.length - 8).reverse();
+
+    //Imprimimos el elemnto en la lista dependiendo el numero de posicion asignado.
+    let positionNumber = 0;
+    readyOrders.forEach((value) => {
+      const nameOfCustomer = `<li data-id='${value.id}'><p>${value.Nombre}</p></li>`;
+      if (positionNumber % 2 === 0) {
+        leftPage.innerHTML += nameOfCustomer;
+      } else {
+        rigthPage.innerHTML += nameOfCustomer;
+      }
+      positionNumber++;
+    });
+  }
 };
 
 function removeCustomerOfList() {
-  rigthPage.innerHTML = "";
-  leftPage.innerHTML  = "";
+  nextOrders.innerHTML = "";
+  rigthPage.innerHTML  = "";
+  leftPage.innerHTML   = "";
 }
 
 function addEmptyElementToList() {
-  //Contamos los elemento li ocupados de la lista ul.
-  const usedLiEmentsLeft  = leftPage.querySelectorAll("li").length;
-  const usedLiEmentsRigth = rigthPage.querySelectorAll("li").length;
-
-  //Obtenemos la cantidad de elemento li faltantes en cada una de las listas ul.
-  // Cada ul debe tener 10 elementos li: 10 menos cantida de elementos li ocupados
-  const leftAvailableLiElemnt  = 10 - usedLiEmentsLeft;  
-  const rigthAvailableLiElemnt = 10 - usedLiEmentsRigth;
-  
-  //Agregamos elemento li faltantes en la lista izquierda
-  if (leftAvailableLiElemnt > 0) {
-    for (let i = 0; i < leftAvailableLiElemnt; i++) {
-      const newElementLi = document.createElement("li");
-      leftPage.appendChild( newElementLi );
-    }
-  }
-
-  //Agregamos elemento li faltantes en la lista derecha
-  if (rigthAvailableLiElemnt > 0) {
-    for (let i = 0; i < rigthAvailableLiElemnt; i++) {
-      const newElementLi = document.createElement("li");
-      rigthPage.appendChild( newElementLi );
-    }
-  }
+  addElementLiEmpty(nextOrders);
+  addElementLiEmpty(leftPage);
+  addElementLiEmpty(rigthPage);
 }
 
-export {
-  printCustomerList,
-  removeCustomerOfList,
-  addEmptyElementToList,
-};
+export { printCustomerList, removeCustomerOfList, addEmptyElementToList };

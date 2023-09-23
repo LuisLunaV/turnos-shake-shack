@@ -8,12 +8,21 @@
     border: none;
     background-color: #fff;
     border-radius: 0.5rem;
-    height: 48.3rem;
+    height: 52rem;
     margin-right:2rem;
     margin-top: 11.5rem;
     margin-bottom: .5rem;
     padding: 20px;
     width: 25%;
+}
+
+.libreta-en-espera ul{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.libreta-en-espera ul li p{
+  margin: 0;
 }
 .libreta {
     border: 0;
@@ -25,6 +34,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 70rem;
+    max-height: 52rem;
   }
   .libreta-head {
     color: #fefeff;
@@ -56,6 +66,17 @@
     background-color: #fff;
   }
   
+  .pagina ul{
+    display: flex;
+    flex-direction: column;
+  }
+ 
+  .pagina ul li p{
+    margin: 0;
+    font-size: 2rem;
+  }
+  
+
   .pagina h2 {
     font-size: 24px;
     margin-bottom: 10px;

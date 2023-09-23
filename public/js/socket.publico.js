@@ -3,7 +3,7 @@ import {
   removeCustomerOfList,
   addEmptyElementToList,
 } from "./components/publico.js";
-import { firstTwenty } from "./utils/primeros-diez.js";
+import { firstTwenty } from "./utils/first-twenty.js";
 
 const socket = io();
 const nameOfThePage = window.location.pathname;
