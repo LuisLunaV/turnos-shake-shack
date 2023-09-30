@@ -6,22 +6,25 @@ const order = new OderHandler();
 const socketController = async ( socket ) => {
   const db = await createDataBase();
 
-  async function startDbMonitoring() {
+  //Monitoreamos cambios en la BD por segundo.
     setInterval(async () => {
       getInformation(await order.observeChange(db));
     }, 1000);
-  }
   
+  //Recibimos los datos del monitoreo y los enviamos.
   function getInformation(datos) {
-    socket.broadcast.emit("pedidos", datos);
+    socket.emit("pedidos", datos);
   }
 
-  startDbMonitoring();
 
   socket.on("siguiente-turno", async (id) => {
     await order.orderUpdate(db, id);
   });
 
+
+  socket.on('orden-lista', async( id )=>{
+    await order.readyOrders(db, id );
+  });
 };
 
 module.exports = {
