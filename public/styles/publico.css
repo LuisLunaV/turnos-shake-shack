@@ -16,6 +16,14 @@ body{
   .p-on-hold{
     font-size: 2.95rem !important;
   }
+  .libreta-en-espera{
+    height: 51.5rem !important;
+}
+
+.libreta-en-espera ul li p{
+  font-size: 3rem !important;
+}
+
   .logo-shake {
     width: 40rem !important;
   }
@@ -24,12 +32,34 @@ body{
   }
   .libreta{
     max-width: 100rem;
+    max-height: 52rem !important;
+  }
+
+  .pagina ul li p{
+    font-size: 3rem !important;
   }
 }
 
+@media ( min-width: 1751px ) and (max-width: 2190px){
+  .logo-shake {
+    width: 79rem !important;
+  }
+
+  .letrero-ordenes {
+    font-size: 5.5rem !important;
+  }
+  .p-on-hold{
+    font-size: 5.5rem !important;
+  }
+  .libreta-en-espera ul li p{
+    font-size: 5.5rem !important;
+  }
+  .pagina ul li p{
+    font-size: 5.5rem !important;
+  }
+}
 
 .container-libreta{
-  /* max-width: 150rem; */
   width: 100%;
 }
 
@@ -54,7 +84,6 @@ body{
     border: none;
     background-color: #fff;
     border-radius: 0.5rem;
-    height: 51.5rem;
     padding: 20px;
     width: 100%;
 }
@@ -66,7 +95,7 @@ body{
 
 .libreta-en-espera ul li p{
   margin: 0;
-  font-size: 3rem;
+  font-size: 6rem;
 }
 .libreta {
     border: 0;
@@ -77,8 +106,6 @@ body{
     background-color: var(--colorPrincipal);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    /* max-width: 100rem; */
-    max-height: 52rem;
   }
   .libreta-head {
     color: #fefeff;
@@ -88,8 +115,8 @@ body{
   }
   .logo-shake {
     position: relative;
-    width: 95rem; /* Establece el ancho deseado para el contenedor */
-    height: auto; /* Establece el alto deseado para el contenedor */
+    width: 95rem;
+    height: auto;
     overflow: hidden;
   }
   .logo-shake img {
@@ -117,7 +144,7 @@ body{
  
   .pagina ul li p{
     margin: 0;
-    font-size: 3rem;
+    font-size: 6rem;
   }
   
 

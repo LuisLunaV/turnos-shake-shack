@@ -38,12 +38,13 @@ ul {
     height: 3.5rem !important;
   }
 }
+
 li {
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 5rem;
+  height: 7.5rem;
   border-bottom: 0.2rem solid var(--colorLineas);
   margin: 10px 0;
 }
