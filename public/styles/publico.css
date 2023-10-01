@@ -8,19 +8,31 @@ body{
 .container-libreta{
   max-width: 100rem;
   width: 100%;
-    /* width: 73%; */
+}
+
+.order-on-hold{
+  align-self: end;
+  height: auto;
+  width: 30%;
+}
+
+.p-on-hold{
+  color: #fff;
+  font-family: var(--fuentePrincipal);
+  font-size: 1.95rem;
+}
+
+.p-on-hold p{
+  margin: 0;
 }
 
 .libreta-en-espera{
     border: none;
     background-color: #fff;
     border-radius: 0.5rem;
-    height: 52rem;
-    margin-right:2rem;
-    margin-top: 11.5rem;
-    margin-bottom: .5rem;
+    height: 51.5rem;
     padding: 20px;
-    width: 30%;
+    width: 100%;
 }
 
 .libreta-en-espera ul{
