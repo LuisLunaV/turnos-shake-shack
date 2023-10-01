@@ -5,7 +5,6 @@ const rigthPage = document.querySelector(".pagina-derecha ul");
 
 //Ordenes en espera.
 const printOrdersOnHold = (data) => {
-
   let onHold = data.slice(0, 8);
   onHold.forEach((value) => {
     const nameOfCustomer = `<li data-id='${value.id}'><p>${value.Nombre}</p></li>`;
@@ -41,6 +40,18 @@ function addEmptyElementToList() {
   addElementLiEmpty(leftPage);
   addElementLiEmpty(rigthPage);
 }
+
+// function addObjectEmptyInOnHold(){
+//   let objectEmpty = {
+//     Nombre:'',
+//     id:'',
+//     status:1
+//   }
+
+//   while( onHold.length<8 ){
+//     onHold.push( objectEmpty )
+//   }
+// }
 
 export {
   printOrdersOnHold,

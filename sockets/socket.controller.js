@@ -16,15 +16,16 @@ const socketController = async ( socket ) => {
     socket.emit("pedidos", datos);
   }
 
-
-  socket.on("siguiente-turno", async (id) => {
-    await order.orderUpdate(db, id);
-  });
-
-
+  //Pasamos de orden en espera a orden lista
   socket.on('orden-lista', async( id )=>{
     await order.readyOrders(db, id );
   });
+
+  //Quitamos la orden de la lista
+  socket.on("quitar-orden", async (id) => {
+    await order.orderUpdate(db, id);
+  });
+
 };
 
 module.exports = {

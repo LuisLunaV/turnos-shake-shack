@@ -12,18 +12,18 @@ socket.on("pedidos", ( orders ) => {
         const ordersOnHold = customers.filter( value => value.status === 0 );
         const readyOrders  = customers.filter( value => value.status === 1 ).reverse();
         
-        //Ordenes en espera.
+        //Quitamos el primer elemento de la lista ordenes en espera.
         setInterval(()=>{
           const readyOrder = ordersOnHold.shift();
           if(!readyOrder)return;
           socket.emit("orden-lista", readyOrder.id);
         },20000)
 
-        //Ordenes listas.
+        //Quitamos el primer elemento de la lista de ordenes listas.
         setInterval(()=>{
           const deleteOrder = readyOrders.pop();
           if(!deleteOrder)return;
-          socket.emit("siguiente-turno", deleteOrder.id);
+          socket.emit("quitar-orden", deleteOrder.id);
         },60000)
 
       //Pintamos los pedidos en las listas de ordenes en espera y ordenes listas.
