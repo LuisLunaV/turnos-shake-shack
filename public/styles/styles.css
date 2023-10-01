@@ -33,9 +33,17 @@ ul {
   list-style: none;
   padding: 0;
 }
-
+@media (max-width: 1751px){
+  li{
+    height: 3.5rem !important;
+  }
+}
 li {
-  height: 3.5rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
   border-bottom: 0.2rem solid var(--colorLineas);
   margin: 10px 0;
 }
