@@ -90,7 +90,9 @@ body{
 
 .libreta-en-espera ul{
   display: flex;
-  flex-direction: column-reverse;
+  /* flex-direction: column-reverse; */
+  flex-direction: column;
+
 }
 
 .libreta-en-espera ul li p{

@@ -8,8 +8,7 @@ const printOrdersOnHold = (data) => {
   let onHold = data.slice(0, 8);
   onHold.forEach((value) => {
     const nameOfCustomer = `<li data-id='${value.id}'><p>${value.Nombre}</p></li>`;
-    // Agregamos el nuevo elemento 'nameOfCustomer' al principio del contenido existente.
-    nextOrders.innerHTML = nameOfCustomer + nextOrders.innerHTML;
+    nextOrders.innerHTML += nameOfCustomer;
   });
 };
 
@@ -29,10 +28,13 @@ const printReadyOrders = (data) => {
   });
 };
 
-function removeCustomerOfList() {
+function removeCustomerOfListOnHold() {
   nextOrders.innerHTML = "";
-  rigthPage.innerHTML = "";
-  leftPage.innerHTML = "";
+}
+
+function removeCustomerOfListReadyOrders() {
+  rigthPage.innerHTML  = "";
+  leftPage.innerHTML   = "";
 }
 
 function addEmptyElementToList() {
@@ -41,21 +43,10 @@ function addEmptyElementToList() {
   addElementLiEmpty(rigthPage);
 }
 
-// function addObjectEmptyInOnHold(){
-//   let objectEmpty = {
-//     Nombre:'',
-//     id:'',
-//     status:1
-//   }
-
-//   while( onHold.length<8 ){
-//     onHold.push( objectEmpty )
-//   }
-// }
-
 export {
   printOrdersOnHold,
   printReadyOrders,
-  removeCustomerOfList,
+  removeCustomerOfListOnHold,
+  removeCustomerOfListReadyOrders,
   addEmptyElementToList,
 };
