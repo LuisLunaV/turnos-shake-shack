@@ -1,15 +1,22 @@
 import { addElementLiEmpty } from "../utils/add-element-li.js";
+import { transitionOfDirectionY, transitionOfDirectionX } from "../utils/transitions-of-the-orders.js";
+
 const nextOrders = document.querySelector(".libreta-en-espera ul");
 const leftPage = document.querySelector(".pagina-izquierda ul");
 const rigthPage = document.querySelector(".pagina-derecha ul");
 
 //Ordenes en espera.
 const printOrdersOnHold = (data) => {
+
   let onHold = data.slice(0, 8);
+
   onHold.forEach((value) => {
     const nameOfCustomer = `<li data-id='${value.id}'><p>${value.Nombre}</p></li>`;
     nextOrders.innerHTML += nameOfCustomer;
   });
+
+  //Agreganis la transicion al elemento li.
+  transitionOfDirectionY(nextOrders);
 };
 
 //Ordenes listas.
@@ -24,24 +31,29 @@ const printReadyOrders = (data) => {
     } else {
       rigthPage.innerHTML += nameOfCustomer;
     }
+
+    //Agreganis la transicion al elemento li.
+    transitionOfDirectionX(leftPage);
+    transitionOfDirectionX(rigthPage);
+
     positionNumber++;
   });
 };
 
 function removeCustomerOfListOnHold() {
   nextOrders.innerHTML = "";
-}
+};
 
 function removeCustomerOfListReadyOrders() {
-  rigthPage.innerHTML  = "";
-  leftPage.innerHTML   = "";
-}
+  rigthPage.innerHTML = "";
+  leftPage.innerHTML = "";
+};
 
 function addEmptyElementToList() {
   addElementLiEmpty(nextOrders);
   addElementLiEmpty(leftPage);
   addElementLiEmpty(rigthPage);
-}
+};
 
 export {
   printOrdersOnHold,

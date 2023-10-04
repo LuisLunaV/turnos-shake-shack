@@ -1,10 +1,4 @@
-import {
-  printOrdersOnHold,
-  printReadyOrders,
-  removeCustomerOfListOnHold,
-  removeCustomerOfListReadyOrders,
-  addEmptyElementToList,
-} from "./components/publico.js";
+import { printOrdersOnHold, printReadyOrders, removeCustomerOfListOnHold, removeCustomerOfListReadyOrders, addEmptyElementToList } from "./components/publico.js";
 import { firstTwenty } from "./utils/first-twenty.js";
 
 const socket = io();
@@ -25,19 +19,17 @@ socket.on("pedidos", (orders) => {
       const readyOrder = ordersOnHold.shift();
       if (!readyOrder) return;
       socket.emit("orden-lista", readyOrder.id);
-    }, 20000);
+    }, 21000);
 
     //Quitamos el primer elemento de la lista de ordenes listas.
     setInterval(() => {
       const deleteOrder = readyOrders.pop();
       if (!deleteOrder) return;
       socket.emit("quitar-orden", deleteOrder.id);
-    }, 60000);
+    }, 40000);
 
- 
 
     //Imprimimos los pedidos en las listas de ordenes en espera y ordenes listas.
-
    /** Controlamos que no se esten imprimiendo los nombres de los clientes cada segundo en el DOM. 
     Solo se imprimiran dependiendo el tiempo establecido de sus cambios de status*/
     if (counterOnHold != ordersOnHold.length){
@@ -49,6 +41,7 @@ socket.on("pedidos", (orders) => {
 
     if (counterReadyOrderds != readyOrders.length){
     removeCustomerOfListReadyOrders();
+    console.log('cambio')
     printReadyOrders(readyOrders);
     addEmptyElementToList();
     counterReadyOrderds = readyOrders.length;

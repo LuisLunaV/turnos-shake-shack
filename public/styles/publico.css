@@ -1,28 +1,28 @@
-body{
+body {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-@media (max-width: 1751px){
-  .container-libreta{
+@media (max-width: 1751px) {
+  .container-libreta {
     max-width: 150rem;
     width: 100%;
   }
-  .order-on-hold{
+  .order-on-hold {
     width: 30%;
   }
-  .p-on-hold{
+  .p-on-hold {
     font-size: 2.95rem !important;
   }
-  .libreta-en-espera{
+  .libreta-en-espera {
     height: 51.5rem !important;
-}
+  }
 
-.libreta-en-espera ul li p{
-  font-size: 3rem !important;
-}
+  .libreta-en-espera ul li p {
+    font-size: 3rem !important;
+  }
 
   .logo-shake {
     width: 40rem !important;
@@ -30,17 +30,17 @@ body{
   .letrero-ordenes {
     font-size: 2.95rem !important;
   }
-  .libreta{
+  .libreta {
     max-width: 100rem;
     max-height: 52rem !important;
   }
 
-  .pagina ul li p{
+  .pagina ul li p {
     font-size: 3rem !important;
   }
 }
 
-@media ( min-width: 1751px ) and (max-width: 2190px){
+@media (min-width: 1751px) and (max-width: 2190px) {
   .logo-shake {
     width: 79rem !important;
   }
@@ -48,123 +48,137 @@ body{
   .letrero-ordenes {
     font-size: 5.5rem !important;
   }
-  .p-on-hold{
+  .p-on-hold {
     font-size: 5.5rem !important;
   }
-  .libreta-en-espera ul li p{
+  .libreta-en-espera ul li p {
     font-size: 5.5rem !important;
   }
-  .pagina ul li p{
+  .pagina ul li p {
     font-size: 5.5rem !important;
   }
 }
 
-.container-libreta{
+.container-libreta {
   width: 100%;
 }
 
-.order-on-hold{
+.order-on-hold {
   align-self: end;
   height: auto;
   margin-right: 3rem;
   width: 40%;
 }
 
-.p-on-hold{
+.p-on-hold {
   color: #fff;
   font-family: var(--fuentePrincipal);
   font-size: 7rem;
 }
 
-.p-on-hold p{
+.p-on-hold p {
   margin: 0;
 }
 
-.libreta-en-espera{
-    border: none;
-    background-color: #fff;
-    border-radius: 0.5rem;
-    padding: 20px;
-    width: 100%;
+.libreta-en-espera {
+  border: none;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 20px;
+  width: 100%;
 }
 
-.libreta-en-espera ul{
+.libreta-en-espera ul {
   display: flex;
   /* flex-direction: column-reverse; */
   flex-direction: column;
-
 }
 
-.libreta-en-espera ul li p{
-  margin: 0;
+.libreta-en-espera ul li p {
   font-size: 6rem;
+  margin: 0;
+  opacity: 0;
+  transition: all 500ms ease;
+  transform: translateY(25%);
 }
-.libreta {
-    border: 0;
-    border-radius: 0.5rem;
-    display: flex;
-    justify-content: space-around;
-    margin: 0 2rem;
-    background-color: var(--colorPrincipal);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-  }
-  .libreta-head {
-    color: #fefeff;
-    background-color: var(--colorSecundario);
-    margin-top: 2rem;
-    text-align: center;
-  }
-  .logo-shake {
-    position: relative;
-    width: 95rem;
-    height: auto;
-    overflow: hidden;
-  }
-  .logo-shake img {
-    width: 100%;
-    height: 1000%;
-    object-fit: cover;
-  }
-  .letrero-ordenes {
-    font-size: 7rem;
-  }
-  .letrero-ordenes p {
-      margin: 0;
-  }
-  .pagina {
-    border: none;
-    width: 45%;
-    padding: 20px;
-    background-color: #fff;
-  }
-  
-  .pagina ul{
-    display: flex;
-    flex-direction: column;
-  }
- 
-  .pagina ul li p{
-    margin: 0;
-    font-size: 6rem;
-  }
-  
 
-  .pagina h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
-  /* Estilos para la página izquierda */
-  .pagina-izquierda {
-    border-radius: 5px 0 0 5px;
-  }
-  
-  /* Estilos para la página derecha */
-  .pagina-derecha {
-    border-radius: 0 5px 5px 0;
-  }
-  
-  
-  
+.libreta {
+  border: 0;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 2rem;
+  background-color: var(--colorPrincipal);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+.libreta-head {
+  color: #fefeff;
+  background-color: var(--colorSecundario);
+  margin-top: 2rem;
+  text-align: center;
+}
+.logo-shake {
+  position: relative;
+  width: 95rem;
+  height: auto;
+  overflow: hidden;
+}
+.logo-shake img {
+  width: 100%;
+  height: 1000%;
+  object-fit: cover;
+}
+.letrero-ordenes {
+  font-size: 7rem;
+}
+.letrero-ordenes p {
+  margin: 0;
+}
+.pagina {
+  border: none;
+  width: 45%;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.pagina ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.pagina ul li p {
+  font-size: 6rem;
+  margin: 0;
+  opacity: 0;
+  transition: all 500ms ease;
+  transform: translateX(-25%);
+}
+
+.pagina h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Estilos para la página izquierda */
+.pagina-izquierda {
+  border-radius: 5px 0 0 5px;
+}
+
+/* Estilos para la página derecha */
+.pagina-derecha {
+  border-radius: 0 5px 5px 0;
+}
+
+.tranformX-0 {
+  opacity: 1 !important;
+  transform: translateX(0%) !important;
+}
+
+.tranformY-0 {
+  opacity: 1 !important;
+  transform: translateY(0%) !important;
+}
+
+
