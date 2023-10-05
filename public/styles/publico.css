@@ -21,7 +21,7 @@ body {
   }
 
   .libreta-en-espera ul li p {
-    font-size: 5rem !important;
+    font-size: 4.5rem !important;
   }
 
   .logo-shake {
@@ -31,12 +31,12 @@ body {
     font-size: 2.95rem !important;
   }
   .libreta {
-    max-width: 100rem;
+    max-width: 120rem;
     height: 52rem !important;
   }
 
   .pagina ul li p {
-    font-size: 5rem !important;
+    font-size: 5.7rem !important;
   }
 }
 
@@ -67,7 +67,7 @@ body {
   align-self: end;
   height: auto;
   margin-right: 3rem;
-  width: 40%;
+  width: 38%;
 }
 
 .p-on-hold {
@@ -93,6 +93,7 @@ body {
 }
 
 .libreta-en-espera ul {
+  padding: 1rem 0;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -119,7 +120,7 @@ body {
   justify-content: space-around;
   margin: 0 2rem;
   overflow: hidden;
-  padding-left: 7rem;
+  /* padding-left: 7rem; */
   width: 100%;
 }
 .libreta-head {
@@ -150,7 +151,7 @@ body {
   flex-direction: column;
   justify-content: center;
   border: none;
-  width: 45%;
+  width: 100%;
   padding: 20px;
   background-color: #fff;
 }
@@ -158,7 +159,8 @@ body {
 .pagina ul {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  align-items: center;
+  gap: 3.9rem;
 }
 
 .pagina ul li p {

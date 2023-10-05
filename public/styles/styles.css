@@ -41,8 +41,9 @@ ul {
 }
 
 li {
+  width: 100%;
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
   height: 7.5rem;
   /* border-bottom: 0.2rem solid var(--colorLineas); */

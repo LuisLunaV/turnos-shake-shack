@@ -21,6 +21,7 @@ const printOrdersOnHold = (data) => {
 //Ordenes listas.
 const printReadyOrders = (data) => {
   let readyOrders = data.slice(-10);
+  console.log(readyOrders)
   let positionNumber = 0;
   //Imprimimos el elemento en la lista dependiendo el numero de posicion asignado.
   readyOrders.forEach((value) => {
