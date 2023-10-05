@@ -1,7 +1,7 @@
 const transitionOfDirectionY = ( ulList ) => {
 
   setInterval(()=>{
-    const paragraphElement = ulList.querySelectorAll("li p");
+    const paragraphElement = ulList.querySelectorAll("li");
     paragraphElement.forEach( order =>{
       order.classList.add('tranformY-0');
     });

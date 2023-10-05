@@ -99,18 +99,14 @@ body {
   gap: 2.5rem;
   overflow: hidden;
 }
-/* .libreta-en-espera ul li{
-  margin: 2.5rem 0;
- } */
+.libreta-en-espera ul li{
+  transition: all 500ms ease;
+  transform: translateY(240%);
+ }
 .libreta-en-espera ul li p {
   background-color: #fefeff;
   font-size: 6rem;
   margin: 0;
-  /* opacity: 0; */
-  transition: all 500ms ease;
-  transform: translateY(80%);
-
-  /* transform: translateY(25%); */
 }
 
 .libreta {
@@ -168,23 +164,18 @@ body {
 .pagina ul li p {
   font-size: 6rem;
   margin: 0;
-  /* opacity: 0; */
-  /* transition: all 500ms ease;
-  transform: translateX(-30%); */
+  background-color: #fefeff;
+
 }
 
 .pagina-derecha ul li {
-  transition: all 3000ms ease;
+  transition: all 2000ms ease;
   transform: translateX(-120%);
-}
-.pagina-derecha ul li p {
-  background-color: #fefeff;
 }
 
 .pagina-izquierda ul li {
   opacity: 0;
   transition: all 1000ms ease;
-  /* transform: translateX(-10%);   */
 }
 
 .pagina h2 {

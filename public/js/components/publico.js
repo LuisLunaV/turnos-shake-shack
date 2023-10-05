@@ -7,7 +7,6 @@ const rigthPage = document.querySelector(".pagina-derecha ul");
 
 //Ordenes en espera.
 const printOrdersOnHold = (data) => {
-
   let onHold = data.slice(0, 5);
 
   onHold.forEach((value) => {
