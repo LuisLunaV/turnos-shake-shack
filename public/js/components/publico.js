@@ -8,7 +8,7 @@ const rigthPage = document.querySelector(".pagina-derecha ul");
 //Ordenes en espera.
 const printOrdersOnHold = (data) => {
 
-  let onHold = data.slice(0, 8);
+  let onHold = data.slice(0, 5);
 
   onHold.forEach((value) => {
     const nameOfCustomer = `<li data-id='${value.id}'><p>${value.Nombre}</p></li>`;
@@ -21,7 +21,7 @@ const printOrdersOnHold = (data) => {
 
 //Ordenes listas.
 const printReadyOrders = (data) => {
-  let readyOrders = data.slice(-16);
+  let readyOrders = data.slice(-10);
   let positionNumber = 0;
   //Imprimimos el elemento en la lista dependiendo el numero de posicion asignado.
   readyOrders.forEach((value) => {

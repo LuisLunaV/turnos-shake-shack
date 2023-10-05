@@ -12,14 +12,14 @@ socket.on("pedidos", (orders) => {
 
   if (nameOfThePage === "/publico.html") {
     const ordersOnHold = customers.filter((value) => value.status === 0);
-    const readyOrders = customers.filter((value) => value.status === 1).reverse();
+    const readyOrders  = customers.filter((value) => value.status === 1).reverse();
     
     //Quitamos el primer elemento de la lista ordenes en espera.
     setInterval(() => {
       const readyOrder = ordersOnHold.shift();
       if (!readyOrder) return;
       socket.emit("orden-lista", readyOrder.id);
-    }, 21000);
+    }, 21500);
 
     //Quitamos el primer elemento de la lista de ordenes listas.
     setInterval(() => {
@@ -27,7 +27,6 @@ socket.on("pedidos", (orders) => {
       if (!deleteOrder) return;
       socket.emit("quitar-orden", deleteOrder.id);
     }, 40000);
-
 
     //Imprimimos los pedidos en las listas de ordenes en espera y ordenes listas.
    /** Controlamos que no se esten imprimiendo los nombres de los clientes cada segundo en el DOM. 
@@ -41,7 +40,6 @@ socket.on("pedidos", (orders) => {
 
     if (counterReadyOrderds != readyOrders.length){
     removeCustomerOfListReadyOrders();
-    console.log('cambio')
     printReadyOrders(readyOrders);
     addEmptyElementToList();
     counterReadyOrderds = readyOrders.length;

@@ -17,11 +17,11 @@ body {
     font-size: 2.95rem !important;
   }
   .libreta-en-espera {
-    height: 51.5rem !important;
+    height: 52rem !important;
   }
 
   .libreta-en-espera ul li p {
-    font-size: 3rem !important;
+    font-size: 5rem !important;
   }
 
   .logo-shake {
@@ -32,11 +32,11 @@ body {
   }
   .libreta {
     max-width: 100rem;
-    max-height: 52rem !important;
+    height: 52rem !important;
   }
 
   .pagina ul li p {
-    font-size: 3rem !important;
+    font-size: 5rem !important;
   }
 }
 
@@ -81,35 +81,49 @@ body {
 }
 
 .libreta-en-espera {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border: none;
   background-color: #fff;
   border-radius: 0.5rem;
+  overflow: hidden;
   padding: 20px;
   width: 100%;
 }
 
 .libreta-en-espera ul {
+  align-items: center;
   display: flex;
-  /* flex-direction: column-reverse; */
   flex-direction: column;
+  gap: 2.5rem;
+  overflow: hidden;
 }
-
+/* .libreta-en-espera ul li{
+  margin: 2.5rem 0;
+ } */
 .libreta-en-espera ul li p {
+  background-color: #fefeff;
   font-size: 6rem;
   margin: 0;
-  opacity: 0;
+  /* opacity: 0; */
   transition: all 500ms ease;
-  transform: translateY(25%);
+  transform: translateY(80%);
+
+  /* transform: translateY(25%); */
 }
 
 .libreta {
+  background-color: var(--colorPrincipal);
   border: 0;
   border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
+  height: 100%;
   justify-content: space-around;
   margin: 0 2rem;
-  background-color: var(--colorPrincipal);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding-left: 7rem;
   width: 100%;
 }
 .libreta-head {
@@ -136,6 +150,9 @@ body {
   margin: 0;
 }
 .pagina {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border: none;
   width: 45%;
   padding: 20px;
@@ -145,14 +162,29 @@ body {
 .pagina ul {
   display: flex;
   flex-direction: column;
+  gap: 2.5rem;
 }
 
 .pagina ul li p {
   font-size: 6rem;
   margin: 0;
+  /* opacity: 0; */
+  /* transition: all 500ms ease;
+  transform: translateX(-30%); */
+}
+
+.pagina-derecha ul li {
+  transition: all 3000ms ease;
+  transform: translateX(-120%);
+}
+.pagina-derecha ul li p {
+  background-color: #fefeff;
+}
+
+.pagina-izquierda ul li {
   opacity: 0;
-  transition: all 500ms ease;
-  transform: translateX(-25%);
+  transition: all 1000ms ease;
+  /* transform: translateX(-10%);   */
 }
 
 .pagina h2 {
@@ -180,5 +212,3 @@ body {
   opacity: 1 !important;
   transform: translateY(0%) !important;
 }
-
-
