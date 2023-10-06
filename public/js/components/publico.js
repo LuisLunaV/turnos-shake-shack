@@ -13,7 +13,6 @@ const printOrdersOnHold = (data) => {
     const nameOfCustomer = `<li data-id='${value.id}'><p>${value.Nombre}</p></li>`;
     nextOrders.innerHTML += nameOfCustomer;
   });
-
   //Agreganis la transicion al elemento li.
   transitionOfDirectionY(nextOrders);
 };
@@ -21,7 +20,6 @@ const printOrdersOnHold = (data) => {
 //Ordenes listas.
 const printReadyOrders = (data) => {
   let readyOrders = data.slice(-10);
-  console.log(readyOrders)
   let positionNumber = 0;
   //Imprimimos el elemento en la lista dependiendo el numero de posicion asignado.
   readyOrders.forEach((value) => {

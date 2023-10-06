@@ -1,6 +1,5 @@
 import { printOrdersOnHold, printReadyOrders, removeCustomerOfListOnHold, removeCustomerOfListReadyOrders, addEmptyElementToList } from "./components/publico.js";
 import { firstTwenty } from "./utils/first-twenty.js";
-const nextOrders = document.querySelector(".libreta-en-espera ul");
 
 const socket = io();
 const nameOfThePage = window.location.pathname;

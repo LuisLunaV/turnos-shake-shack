@@ -19,6 +19,9 @@ body {
   .libreta-en-espera {
     height: 52rem !important;
   }
+  .libreta-en-espera ul {
+    gap: 2.5rem !important;
+  }
 
   .libreta-en-espera ul li p {
     font-size: 4.5rem !important;
@@ -30,11 +33,17 @@ body {
   .letrero-ordenes {
     font-size: 2.95rem !important;
   }
+  .container-libreta {
+    height: 68rem !important;
+    /* width: 100%; */
+  }
   .libreta {
     max-width: 120rem;
-    height: 52rem !important;
+    /* height: 52rem !important; */
   }
-
+  .pagina ul {
+    gap: 3.9rem !important;
+  }
   .pagina ul li p {
     font-size: 5.7rem !important;
   }
@@ -51,15 +60,29 @@ body {
   .p-on-hold {
     font-size: 5.5rem !important;
   }
+  .libreta-en-espera {
+    height: 70rem !important;
+  }
+  .libreta-en-espera ul {
+    gap: 2.5rem !important;
+  }
   .libreta-en-espera ul li p {
-    font-size: 5.5rem !important;
+    font-size: 6rem !important;
+  }
+  .container-libreta {
+    height: 99rem !important;
+    /* width: 100%; */
+  }
+  .pagina ul {
+    gap: 3.9rem !important;
   }
   .pagina ul li p {
-    font-size: 5.5rem !important;
+    font-size: 7rem !important;
   }
 }
 
 .container-libreta {
+  height: 138rem;
   width: 100%;
 }
 
@@ -87,6 +110,7 @@ body {
   border: none;
   background-color: #fff;
   border-radius: 0.5rem;
+  height: 103rem;
   overflow: hidden;
   padding: 20px;
   width: 100%;
@@ -97,16 +121,16 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 6rem;
   overflow: hidden;
 }
-.libreta-en-espera ul li{
+.libreta-en-espera ul li {
   transition: all 500ms ease;
   transform: translateY(240%);
- }
+}
 .libreta-en-espera ul li p {
   background-color: #fefeff;
-  font-size: 6rem;
+  font-size: 8.5rem;
   margin: 0;
 }
 
@@ -160,14 +184,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3.9rem;
+  gap: 9rem;
 }
 
 .pagina ul li p {
-  font-size: 6rem;
+  font-size: 10.5rem;
+  font-weight: 700;
   margin: 0;
   background-color: #fefeff;
-
 }
 
 .pagina-derecha ul li {
