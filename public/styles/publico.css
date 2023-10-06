@@ -45,7 +45,7 @@ body {
     gap: 3.9rem !important;
   }
   .pagina ul li p {
-    font-size: 5.7rem !important;
+    font-size: 5.2rem !important;
   }
 }
 
@@ -90,7 +90,7 @@ body {
   align-self: end;
   height: auto;
   margin-right: 3rem;
-  width: 38%;
+  width: 40%;
 }
 
 .p-on-hold {
@@ -117,12 +117,15 @@ body {
 }
 
 .libreta-en-espera ul {
+  height: 100%;
   padding: 1rem 0;
   align-items: center;
   display: flex;
   flex-direction: column;
   gap: 6rem;
   overflow: hidden;
+  transition: all 1000ms ease;
+
 }
 .libreta-en-espera ul li {
   transition: all 500ms ease;
@@ -181,6 +184,7 @@ body {
 }
 
 .pagina ul {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -228,4 +232,9 @@ body {
 .tranformY-0 {
   opacity: 1 !important;
   transform: translateY(0%) !important;
+}
+
+.ocultar{
+  opacity: 0 !important;
+  transition: all 1000ms ease;
 }
