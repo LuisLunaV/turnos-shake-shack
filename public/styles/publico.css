@@ -20,6 +20,7 @@ body {
     height: 52rem !important;
   }
   .libreta-en-espera ul {
+    padding-top: 3.5rem !important;
     gap: 2.5rem !important;
   }
 
@@ -41,11 +42,14 @@ body {
     max-width: 120rem;
     /* height: 52rem !important; */
   }
+  .pagina {
+    padding: 2rem !important;
+  }
   .pagina ul {
     gap: 3.9rem !important;
   }
   .pagina ul li p {
-    font-size: 5.2rem !important;
+    font-size: 5.8rem !important;
   }
 }
 
@@ -64,6 +68,7 @@ body {
     height: 70rem !important;
   }
   .libreta-en-espera ul {
+    padding-top: 3.5rem !important;
     gap: 2.5rem !important;
   }
   .libreta-en-espera ul li p {
@@ -72,6 +77,9 @@ body {
   .container-libreta {
     height: 99rem !important;
     /* width: 100%; */
+  }
+  .pagina {
+    padding: 2rem !important;
   }
   .pagina ul {
     gap: 3.9rem !important;
@@ -124,9 +132,10 @@ body {
   flex-direction: column;
   gap: 6rem;
   overflow: hidden;
+  padding-top: 11rem;
   transition: all 1000ms ease;
-
 }
+
 .libreta-en-espera ul li {
   transition: all 500ms ease;
   transform: translateY(240%);
@@ -179,7 +188,7 @@ body {
   justify-content: center;
   border: none;
   width: 100%;
-  padding: 20px;
+  padding: 5rem;
   background-color: #fff;
 }
 
@@ -192,20 +201,20 @@ body {
 }
 
 .pagina ul li p {
-  font-size: 10.5rem;
+  font-size: 11.5rem;
   font-weight: 700;
   margin: 0;
   background-color: #fefeff;
 }
 
 .pagina-derecha ul li {
-  transition: all 2000ms ease;
+  transition: all 1000ms ease;
   transform: translateX(-120%);
 }
 
 .pagina-izquierda ul li {
   opacity: 0;
-  transition: all 1000ms ease;
+  transition: all 500ms ease;
 }
 
 .pagina h2 {
@@ -234,7 +243,7 @@ body {
   transform: translateY(0%) !important;
 }
 
-.ocultar{
+.ocultar {
+  transform: translateX(20%) !important;
   opacity: 0 !important;
-  transition: all 1000ms ease;
 }

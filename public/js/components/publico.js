@@ -1,5 +1,7 @@
-import { addElementLiEmpty } from "../utils/add-element-li.js";
-import { transitionOfDirectionY, transitionOfDirectionX } from "../utils/transitions-of-the-orders.js";
+import {
+  transitionOfDirectionY,
+  transitionOfDirectionX,
+} from "../utils/transitions-of-the-orders.js";
 
 const nextOrders = document.querySelector("#ulOnHold");
 const leftPage = document.querySelector(".pagina-izquierda ul");
@@ -46,26 +48,20 @@ const printReadyOrders = (data) => {
   });
 };
 
-const removeElementLi =( id )=>{
-  // Obtén una referencia al elemento <li> que deseas eliminar utilizando su ID.
-const liToDelete = nextOrders.querySelector(`li[data-id='${id}']`);
-
-// Verifica si el elemento existe antes de intentar eliminarlo.
-if (liToDelete) {
-  liToDelete.classList.add("ocultar");
-  // Utiliza el método removeChild() para eliminar el elemento <li> del <ul>.
-  nextOrders.removeChild(liToDelete);
-  // setTimeout(()=>{
-    // nextOrders.removeChild(liToDelete);
-  // },2000)
-} 
-}
+const removeElementLi = (id) => {
+  const liToDelete = nextOrders.querySelector(`li[data-id='${id}']`);
+  if (liToDelete) {
+    liToDelete.classList.add("ocultar");
+    setTimeout(() => {
+      nextOrders.removeChild(liToDelete);
+    }, 500);
+  }
+};
 
 function removeCustomerOfListReadyOrders() {
   rigthPage.innerHTML = "";
   leftPage.innerHTML = "";
-};
-
+}
 
 export {
   removeElementLi,
