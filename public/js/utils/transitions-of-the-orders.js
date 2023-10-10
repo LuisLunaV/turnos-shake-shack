@@ -1,7 +1,6 @@
 const transitionOfDirectionY = ( ulList ) => {
-
   setInterval(()=>{
-    const paragraphElement = ulList.querySelectorAll("li");
+    const paragraphElement = ulList.querySelectorAll("li p");
     paragraphElement.forEach( order =>{
       order.classList.add('tranformY-0');
     });
@@ -9,18 +8,6 @@ const transitionOfDirectionY = ( ulList ) => {
 
 };
 
-const transitionOfDirectionX = ( ulList ) => { 
-  setInterval(()=>{
-    // const paragraphElement = ulList.querySelectorAll("li p");
-    const paragraphElement = ulList.querySelectorAll("li");
-
-    paragraphElement.forEach( order =>{
-      order.classList.add('tranformX-0');
-    });
-  },50);   
-};
-
 export{
-transitionOfDirectionY,
-transitionOfDirectionX
+transitionOfDirectionY
 }

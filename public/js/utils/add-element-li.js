@@ -2,7 +2,7 @@
 function addElementLiEmpty(page) {
   const usedLiEment = page.querySelectorAll("li").length;
 
-  const availableItem = 5 - usedLiEment;
+  const availableItem = 10 - usedLiEment;
 
   if (availableItem > 0) {
     for (let i = 0; i < availableItem; i++) {

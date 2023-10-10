@@ -34,20 +34,19 @@ ul {
   list-style: none;
   padding: 0;
 }
-@media (max-width: 1751px) {
+/* @media (max-width: 1751px) {
   li {
     height: 3.5rem !important;
   }
-}
+} */
 
 li {
-  width: 100%;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-  height: 7.5rem;
-  /* border-bottom: 0.2rem solid var(--colorLineas); */
+  border-bottom: 0.5rem solid var(--colorLineas);
   margin: 10px 0;
+  width: 100%;
 }
 img {
   max-width: 100%;
@@ -82,6 +81,7 @@ img {
 }
 /* Principal */
 .container {
+  height: 100%;
   align-items: center;
   margin-bottom: 2rem;
   padding: 0 2rem;

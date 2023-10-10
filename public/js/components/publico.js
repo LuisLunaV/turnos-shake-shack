@@ -1,50 +1,21 @@
-import {
-  transitionOfDirectionY,
-  transitionOfDirectionX,
-} from "../utils/transitions-of-the-orders.js";
-
-const nextOrders = document.querySelector("#ulOnHold");
+import { transitionOfDirectionY } from "../utils/transitions-of-the-orders.js";
+import { addElementLiEmpty } from "../utils/add-element-li.js";
 const leftPage = document.querySelector(".pagina-izquierda ul");
 const rigthPage = document.querySelector(".pagina-derecha ul");
 
-// Mantén un registro de los IDs ya impresos
-const printedIDs = [];
-
-//Ordenes en espera.
-const printOrdersOnHold = (data) => {
-  let onHold = data.slice(0, 5);
-  onHold.forEach((value) => {
-    // Verifica si el ID ya se ha impreso antes
-    if (!printedIDs.includes(value.id)) {
-      const nameOfCustomer = `<li data-id='${value.id}'><p>${value.Nombre}</p></li>`;
-      nextOrders.innerHTML += nameOfCustomer;
-      // Agrega el ID al registro de IDs impresos
-      printedIDs.push(value.id);
-    }
-  });
-
-  //Agreganis la transicion al elemento li.
-  transitionOfDirectionY(nextOrders);
-};
-
 //Ordenes listas.
 const printReadyOrders = (data) => {
-  let readyOrders = data.slice(-10);
-  let positionNumber = 0;
+  let readyOrders = data.slice(-19);
   //Imprimimos el elemento en la lista dependiendo el numero de posicion asignado.
   readyOrders.forEach((value) => {
     const nameOfCustomer = `<li data-id='${value.id}'><p>${value.Nombre}</p></li>`;
-    if (positionNumber % 2 === 0) {
-      leftPage.innerHTML += nameOfCustomer;
-    } else {
+    if (value.id % 2 === 0) {
       rigthPage.innerHTML += nameOfCustomer;
+    } else {
+      leftPage.innerHTML += nameOfCustomer;
     }
-
-    //Agreganis la transicion al elemento li.
-    transitionOfDirectionX(leftPage);
-    transitionOfDirectionX(rigthPage);
-
-    positionNumber++;
+    transitionOfDirectionY(rigthPage);
+    transitionOfDirectionY(leftPage);
   });
 };
 
@@ -63,9 +34,14 @@ function removeCustomerOfListReadyOrders() {
   leftPage.innerHTML = "";
 }
 
+function addEmptyElementToList() {
+  addElementLiEmpty(leftPage);
+  addElementLiEmpty(rigthPage);
+}
+
 export {
   removeElementLi,
-  printOrdersOnHold,
   printReadyOrders,
   removeCustomerOfListReadyOrders,
+  addEmptyElementToList,
 };

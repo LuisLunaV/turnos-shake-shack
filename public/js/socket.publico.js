@@ -1,49 +1,34 @@
-import { printOrdersOnHold, printReadyOrders, removeElementLi, removeCustomerOfListReadyOrders } from "./components/publico.js";
+import {  printReadyOrders, removeElementLi, removeCustomerOfListReadyOrders, addEmptyElementToList } from "./components/publico.js";
 import { firstTwenty } from "./utils/first-twenty.js";
 
 const socket = io();
 const nameOfThePage = window.location.pathname;
 
-let counterOnHold = 0;
 let counterReadyOrderds = 0;
 
 socket.on("pedidos", (orders) => {
-  const customers = firstTwenty(orders);
+  const customers = firstTwenty(orders).reverse();
 
   if (nameOfThePage === "/publico.html") {
-    const ordersOnHold = customers.filter((value) => value.status === 0);
-    const readyOrders = customers.filter((value) => value.status === 1).reverse();
-    
-    //Quitamos el primer elemento de la lista ordenes en espera.
-    setInterval(() => {
-      const readyOrder = ordersOnHold.shift();
-      if (!readyOrder) return;
-      removeElementLi(readyOrder.id )
-      socket.emit("orden-lista", readyOrder.id);
-    }, 20000);
-
+   
     //Quitamos el primer elemento de la lista de ordenes listas.
     setInterval(() => {
-      const deleteOrder = readyOrders.pop();
+      const deleteOrder = customers.pop();
       if (!deleteOrder) return;
       socket.emit("quitar-orden", deleteOrder.id);
-    }, 42500);
+    }, 40000);
 
 
     //Imprimimos los pedidos en las listas de ordenes en espera y ordenes listas.
    /** Controlamos que no se esten imprimiendo los nombres de los clientes cada segundo en el DOM. 
     Solo se imprimiran dependiendo el tiempo establecido de sus cambios de status*/
-    if (counterOnHold != ordersOnHold.length){
-    printOrdersOnHold(ordersOnHold);
-    counterOnHold = ordersOnHold.length;
-  }
 
-    if (counterReadyOrderds != readyOrders.length){
+    if (counterReadyOrderds != customers.length){
     removeCustomerOfListReadyOrders();
-    printReadyOrders(readyOrders);
-    counterReadyOrderds = readyOrders.length;
+    printReadyOrders(customers);
+    addEmptyElementToList();
+    counterReadyOrderds = customers.length;
   }
 
-    return;
   }
 });
