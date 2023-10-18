@@ -11,7 +11,7 @@ class Server {
     this.server = require("http").createServer(this.app);
     this.io = require("socket.io")(this.server);
     this.path = {
-      pedidos: "/api/pedidos",
+      pedidos: "/api/v1/pedidos",
     };
 
     //Ejecutamos los middlewares

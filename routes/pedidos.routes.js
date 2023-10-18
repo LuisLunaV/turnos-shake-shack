@@ -1,11 +1,9 @@
 const { Router } = require('express');
 
+const { postPedido } = require("../controllers/pedido.controller.js");
+
 const router = Router();
 
-router.get('/',( req, res )=>{
-    res.status(200).json({
-        msg: 'Servicio levantado'
-    })
-});
+router.post('/', postPedido );
 
 module.exports = router;
