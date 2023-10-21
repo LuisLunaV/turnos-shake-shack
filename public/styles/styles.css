@@ -4,8 +4,9 @@
   --fuentePrincipal: "Open Sans", sans-serif;
   --colorPrincipal: #fff;
   --colorSecundario: #000101;
-  --colorTareas: #82c043;
+  --colorTareas: #000101;
   --colorLineas: #1f1e1e;
+  /* --colorTareas: #82c043; */
   /* --colorTareas: #72ac55; */
 }
 html {

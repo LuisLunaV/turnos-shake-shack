@@ -7,26 +7,25 @@ body {
 /* Horizontal */
 @media (min-width: 1920px) and (min-height: 1080px) {
   .logo-shake {
-    width: 50rem !important;
-    width: auto;
+    width: 45rem !important;
   }
 
   .letrero-ordenes {
     font-size: 4rem !important;
   }
-.container-libreta {
-  padding: 0 !important;
-}
+  .container-libreta {
+    padding: 0 !important;
+  }
 
-  .libreta{
-width: 75% !important;
+  .libreta {
+    width: 75% !important;
   }
 
   .pagina {
     padding: 2rem !important;
   }
   .pagina ul {
-    gap: .5rem !important;
+    gap: 0.5rem !important;
   }
   .pagina ul li {
     min-height: 5.8rem;
@@ -37,10 +36,10 @@ width: 75% !important;
   }
 }
 
-/* vretical */
+/* vertical */
 @media (min-width: 1080px) and (min-height: 1920px) {
   .logo-shake {
-    min-width: 70rem !important;
+    min-width: 65rem !important;
     width: auto;
   }
 
@@ -64,7 +63,7 @@ width: 75% !important;
 
 @media (min-width: 2160px) and (min-height: 3840px) {
   .logo-shake {
-    width: 150rem !important;
+    width: 120rem !important;
   }
 
   .letrero-ordenes {
@@ -80,7 +79,7 @@ width: 75% !important;
     gap: 1rem !important;
   }
   .pagina ul li {
-    padding-left:2rem;
+    padding-left: 2rem;
     height: 25rem;
   }
   .pagina ul li p {
@@ -119,7 +118,7 @@ width: 75% !important;
 }
 .logo-shake {
   position: relative;
-  width: 95rem;
+  width: 65rem;
   height: auto;
   overflow: hidden;
 }
@@ -178,9 +177,7 @@ width: 75% !important;
   border-radius: 0 5px 5px 0;
 }
 
-
 .tranformY-0 {
   opacity: 1 !important;
   /* transform: translateY(0%) !important; */
 }
-

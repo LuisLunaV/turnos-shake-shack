@@ -5,6 +5,7 @@ const { createDataBase } = require("../db/config.js");
 const postPedido = async (req = request, res = response) => {
   const db = await createDataBase();
 
+
   const {
     Orden_Cliente,
     Orden_fecha,
@@ -31,17 +32,25 @@ const postPedido = async (req = request, res = response) => {
       ],(err, result) => {
         if (err) {
           console.error("Error al ejecutar la consulta: " + err.message);
-          res
-            .status(500)
-            .json({ error: "Error al insertar datos en la tabla Ordenes" });
+          res.status(500).json({ 
+            error: "Error al insertar datos en la tabla Ordenes" 
+          });
         } else {
-          res.status(200).json({ msg: "Datos insertados exitosamente" });
-        }
+          res.status(200).json({ 
+            msg: "Datos insertados exitosamente" 
+          });
+        } 
+       db.end(); 
       }
     );
   } catch (error) {
     console.error("Error en socketController:", error);
     res.status(500).json({ error: "Error en el servidor" });
+
+    if (db) {
+      db.end();
+    }
+
   }
 };
 

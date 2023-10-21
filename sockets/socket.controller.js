@@ -18,12 +18,12 @@ const socketController = async ( socket ) => {
 
   //Pasamos de orden en espera a orden lista
   socket.on('orden-lista', async( id )=>{
-    await order.readyOrders(db, id );
+    // await order.readyOrders(db, id );
   });
 
   //Quitamos la orden de la lista
   socket.on("quitar-orden", async (id) => {
-    await order.orderUpdate(db, id);
+   await order.orderUpdate(db, id);
   });
 
 };

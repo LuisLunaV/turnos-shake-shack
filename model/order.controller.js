@@ -18,32 +18,39 @@ class OderHandler {
     });
   }
 
-  readyOrders(db, id) {
-    return new Promise(async (resolve, reject) => {
-      try {
-        db.query(
-          "UPDATE Ordenes SET Orden_Status = 1 WHERE Orden_Id = ?",
-          [id],
-          (err, result) => {
-            resolve(result);
-          }
-        );
-      } catch (error) {
-        reject(error);
-      }
-    });
-  }
+  // readyOrders(db, id) {
+  //   return new Promise(async (resolve, reject) => {
+  //     try {
+  //       db.query(
+  //         "UPDATE Ordenes SET Orden_Status = 1 WHERE Orden_Id = ?",
+  //         [id],
+  //         (err, result) => {
+  //           resolve(result);
+  //         }
+  //       );
+  //     } catch (error) {
+  //       reject(error);
+  //     }
+  //   });
+  // }
 
   orderUpdate(db, id) {
     return new Promise(async (resolve, reject) => {
       try {
+        // console.log('abierto')
         db.query(
           "UPDATE Ordenes SET Orden_Status = 2 WHERE Orden_Id = ?",
           [id],
           (err, result) => {
-            resolve(result);
+            
+            if(err){
+              reject( err );
+            }else{
+              resolve(result);
+            }
+
           }
-        );
+        );       
       } catch (error) {
         reject(error);
       }
