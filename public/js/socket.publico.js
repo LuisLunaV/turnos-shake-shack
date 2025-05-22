@@ -7,11 +7,25 @@ let counterReadyOrderds = 0;
 let interval1 = null; // Variable para el primer setInterval
 let interval2 = null; // Variable para el segundo setInterval
 
-socket.on("pedidos", (orders) => {
-  
+socket.on("pedidos", imprimirOrdenes );
+
+function imprimirOrdenes( orders ){
+
     const customers = firstTwenty(orders).reverse();
  
-    // Controlamos cuál setInterval se debe activar o desactivar según la condición.
+    quitarOrdenInterval(customers);
+
+    // Imprimimos los pedidos en las listas de ordenes en espera y ordenes listas.
+    if (counterReadyOrderds != customers.length) {
+      removeCustomerOfListReadyOrders();
+      printReadyOrders(customers);
+      addEmptyElementToList();
+      counterReadyOrderds = customers.length;
+    }
+};
+
+function quitarOrdenInterval(customers){
+   // Controlamos cuál setInterval se debe activar o desactivar según la condición.
     if (customers.length < 3 && customers.length > 0) {
       clearInterval(interval2); // Detener el segundo setInterval
       interval1 = setInterval(() => {
@@ -32,15 +46,10 @@ socket.on("pedidos", (orders) => {
           return;
         }
 
-      }, 60000);
-
+      }, 25000);
     }
+}
 
-    // Imprimimos los pedidos en las listas de ordenes en espera y ordenes listas.
-    if (counterReadyOrderds != customers.length) {
-      removeCustomerOfListReadyOrders();
-      printReadyOrders(customers);
-      addEmptyElementToList();
-      counterReadyOrderds = customers.length;
-    }
-});
+window.onload=()=>{
+socket.on("pedidos", imprimirOrdenes );
+};

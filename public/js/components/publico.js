@@ -7,7 +7,7 @@ const rigthPage = document.querySelector(".pagina-derecha ul");
 //Ordenes listas.
 const printReadyOrders = (data) => {
   let readyOrders = data.slice(-20);
-  console.log(readyOrders)
+  
   //Imprimimos el elemento en la lista dependiendo el numero de posicion asignado.
   readyOrders.forEach((value, index) => {
  
