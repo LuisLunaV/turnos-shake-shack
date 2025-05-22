@@ -23,7 +23,7 @@ socket.on("pedidos", (orders) => {
           return;
         }
         
-      }, 120000);
+      }, 15000);
 
     }else{
       clearInterval(interval1); // Detener el primer setInterval

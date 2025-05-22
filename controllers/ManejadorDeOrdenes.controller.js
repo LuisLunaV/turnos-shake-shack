@@ -1,4 +1,5 @@
 const { Orders } = require('../model/orders');
+const { orden } = require('../controllers/Observador.js');
 
 const manejadorDeOrdenes = {
     observarCambios: async()=>{
@@ -33,13 +34,18 @@ try {
     });
     
     if(!ordenId)return;
-    await Orders.update({
+  const data =  await Orders.update({
         Orden_Status:2
     },{
         where:{
             Orden_Id:id
         }
     });
+
+    if( data ){
+console.log('eliminamos pedido:');
+orden.notificarCambio('cambio');
+    }
 } catch (error) {
     console.log('Error al actualizar pedido:',error);
 }
