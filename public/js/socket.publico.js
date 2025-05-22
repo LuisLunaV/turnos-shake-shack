@@ -1,34 +1,49 @@
-import {  printReadyOrders, removeElementLi, removeCustomerOfListReadyOrders, addEmptyElementToList } from "./components/publico.js";
+import { printReadyOrders, removeElementLi, removeCustomerOfListReadyOrders, addEmptyElementToList } from "./components/publico.js";
 import { firstTwenty } from "./utils/first-twenty.js";
 
 const socket = io();
 const nameOfThePage = window.location.pathname;
 
 let counterReadyOrderds = 0;
+let interval1 = null; // Variable para el primer setInterval
+let interval2 = null; // Variable para el segundo setInterval
 
 socket.on("pedidos", (orders) => {
-  const customers = firstTwenty(orders).reverse();
-
+  
   if (nameOfThePage === "/publico.html") {
-   
-    //Quitamos el primer elemento de la lista de ordenes listas.
-    setInterval(() => {
-      const deleteOrder = customers.pop();
-      if (!deleteOrder) return;
-      socket.emit("quitar-orden", deleteOrder.id);
-    }, 40000);
+    const customers = firstTwenty(orders).reverse();
+ 
+    // Controlamos cuál setInterval se debe activar o desactivar según la condición.
+    if (customers.length < 3 && customers.length > 0) {
+      clearInterval(interval2); // Detener el segundo setInterval
+      interval1 = setInterval(() => {
+        const deleteOrder = customers.pop();
+        if(typeof deleteOrder != 'undefined'){
+          socket.emit("quitar-orden", deleteOrder.id);
+          return;
+        }
+        
+      }, 120000);
 
+    }else{
+      clearInterval(interval1); // Detener el primer setInterval
+      interval2 = setInterval(() => {
+        const deleteOrder = customers.pop();
+        if (typeof deleteOrder != 'undefined'){
+          socket.emit("quitar-orden", deleteOrder.id);
+          return;
+        }
 
-    //Imprimimos los pedidos en las listas de ordenes en espera y ordenes listas.
-   /** Controlamos que no se esten imprimiendo los nombres de los clientes cada segundo en el DOM. 
-    Solo se imprimiran dependiendo el tiempo establecido de sus cambios de status*/
+      }, 20000);
 
-    if (counterReadyOrderds != customers.length){
-    removeCustomerOfListReadyOrders();
-    printReadyOrders(customers);
-    addEmptyElementToList();
-    counterReadyOrderds = customers.length;
-  }
+    }
 
+    // Imprimimos los pedidos en las listas de ordenes en espera y ordenes listas.
+    if (counterReadyOrderds != customers.length) {
+      removeCustomerOfListReadyOrders();
+      printReadyOrders(customers);
+      addEmptyElementToList();
+      counterReadyOrderds = customers.length;
+    }
   }
 });

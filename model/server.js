@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { createDataBase } = require("../db/config.js");
+const { dbConnection } = require("../db/config.js");
 
 const { socketController } = require("../sockets/socket.controller.js");
 
@@ -37,7 +37,7 @@ class Server {
   }
 
   async dataBase() {
-    await createDataBase();
+    await dbConnection();
   }
 
   sockets() {

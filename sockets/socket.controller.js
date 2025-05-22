@@ -1,29 +1,28 @@
-const { createDataBase } = require("../db/config.js");
-const OderHandler = require("../model/order.controller.js");
-
-const order = new OderHandler();
+const { manejadorDeOrdenes } = require("../controllers/ManejadorDeOrdenes.controller.js");
 
 const socketController = async ( socket ) => {
-  const db = await createDataBase();
 
   //Monitoreamos cambios en la BD por segundo.
-    setInterval(async () => {
-      getInformation(await order.observeChange(db));
-    }, 1000);
+  const intervalId =  setInterval(async () => {
+    try {
+    //Recibimos los datos del monitoreo y los enviamos.
+    const datos = await manejadorDeOrdenes.observarCambios();
+    socket.emit("pedidos", datos); 
+    } catch (error) {
+      console.error("Error al obtener datos:", error);
+    }
+    }, 2000);
   
-  //Recibimos los datos del monitoreo y los enviamos.
-  function getInformation(datos) {
-    socket.emit("pedidos", datos);
-  }
-
-  //Pasamos de orden en espera a orden lista
-  socket.on('orden-lista', async( id )=>{
-    await order.readyOrders(db, id );
+ 
+  // Limpiar el intervalo cuando el cliente se desconecta
+  socket.on("disconnect", () => {
+    console.log("Cliente desconectado:", socket.id);
+    clearInterval(intervalId);
   });
 
   //Quitamos la orden de la lista
   socket.on("quitar-orden", async (id) => {
-    await order.orderUpdate(db, id);
+    await manejadorDeOrdenes.ordenesListas( id );
   });
 
 };

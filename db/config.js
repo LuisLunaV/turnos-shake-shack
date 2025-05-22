@@ -1,22 +1,22 @@
-const mysql = require('mysql2');
+const { Sequelize } = require('sequelize');
 
-const db = {
+const db = new Sequelize( process.env.NAME_DB, process.env.USER_DB, process.env.PASS_DB,{
   host: process.env.HOST_DB,
-  user: process.env.USER_DB,
-  password: process.env.PASS_DB,
-  database: process.env.NAME_DB
-}
+  dialect: 'mysql'
+  });
+  
 
-const createDataBase = async() => {
-  try {
-    const runDataBase = await mysql.createPool(db);
-    // console.log('Base de datos en línea');
-    return runDataBase;
-  } catch (error) {
-    throw new Error( error )
+  const dbConnection = async () => {
+      try {
+          await db.authenticate();
+          console.log('Data base in line')
+      } catch (error) {
+          throw new Error( error );
+      }
+  };
+  
+  module.exports =  {
+      db,
+      dbConnection
   }
-}
 
-module.exports = {
-  createDataBase
-};
