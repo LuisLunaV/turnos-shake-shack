@@ -43,8 +43,8 @@ try {
     });
 
     if( data ){
-console.log('eliminamos pedido:');
-orden.notificarCambio('cambio');
+        //Notificamos un cambio
+        orden.notificarCambio('cambio');
     }
 } catch (error) {
     console.log('Error al actualizar pedido:',error);

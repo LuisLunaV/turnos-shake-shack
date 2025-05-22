@@ -1,12 +1,14 @@
 const {
   manejadorDeOrdenes,
 } = require("../controllers/ManejadorDeOrdenes.controller.js");
+
 const { orden, Observador } = require("../controllers/Observador.js");
 
 const socketController = async (socket) => {
   //Monitoreamos cambios en con el patron observado.
   try {
-    const observadoUno = new Observador(async (data) => {
+
+    const observadoUno = new Observador(async ( data ) => {
       //Cada que recibimos una notificacion de nueva orden grabada en bd, enviamos los pedidos nuevos al front
       const datos = await manejadorDeOrdenes.observarCambios();
       socket.emit("pedidos", datos);

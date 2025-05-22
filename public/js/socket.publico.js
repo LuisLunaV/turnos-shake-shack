@@ -1,8 +1,7 @@
-import { printReadyOrders, removeElementLi, removeCustomerOfListReadyOrders, addEmptyElementToList } from "./components/publico.js";
+import { printReadyOrders, removeCustomerOfListReadyOrders, addEmptyElementToList } from "./components/publico.js";
 import { firstTwenty } from "./utils/first-twenty.js";
 
 const socket = io();
-const nameOfThePage = window.location.pathname;
 
 let counterReadyOrderds = 0;
 let interval1 = null; // Variable para el primer setInterval
@@ -10,7 +9,6 @@ let interval2 = null; // Variable para el segundo setInterval
 
 socket.on("pedidos", (orders) => {
   
-  if (nameOfThePage === "/publico.html") {
     const customers = firstTwenty(orders).reverse();
  
     // Controlamos cuál setInterval se debe activar o desactivar según la condición.
@@ -23,7 +21,7 @@ socket.on("pedidos", (orders) => {
           return;
         }
         
-      }, 15000);
+      }, 60000);
 
     }else{
       clearInterval(interval1); // Detener el primer setInterval
@@ -34,7 +32,7 @@ socket.on("pedidos", (orders) => {
           return;
         }
 
-      }, 20000);
+      }, 60000);
 
     }
 
@@ -45,5 +43,4 @@ socket.on("pedidos", (orders) => {
       addEmptyElementToList();
       counterReadyOrderds = customers.length;
     }
-  }
 });

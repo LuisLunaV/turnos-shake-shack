@@ -1,18 +1,22 @@
 import { transitionOfDirectionY } from "../utils/transitions-of-the-orders.js";
 import { addElementLiEmpty } from "../utils/add-element-li.js";
+
 const leftPage = document.querySelector(".pagina-izquierda ul");
 const rigthPage = document.querySelector(".pagina-derecha ul");
 
 //Ordenes listas.
 const printReadyOrders = (data) => {
   let readyOrders = data.slice(-20);
+  console.log(readyOrders)
   //Imprimimos el elemento en la lista dependiendo el numero de posicion asignado.
-  readyOrders.forEach((value) => {
-    const nameOfCustomer = `<li data-id='${value.id}'><p>${value.Nombre}</p></li>`;
-    if (value.id % 2 === 0) {
-      rigthPage.innerHTML += nameOfCustomer;
-    } else {
+  readyOrders.forEach((value, index) => {
+ 
+    const nameOfCustomer = `<li data-id='${index}'><p>${value.Nombre}</p></li>`;
+ 
+    if (index % 2 === 0) {
       leftPage.innerHTML += nameOfCustomer;
+    } else {
+      rigthPage.innerHTML += nameOfCustomer;
     }
     transitionOfDirectionY(rigthPage);
     transitionOfDirectionY(leftPage);
