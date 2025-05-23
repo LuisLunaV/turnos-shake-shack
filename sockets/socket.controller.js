@@ -18,7 +18,7 @@ const socketController = async (socket) => {
   } catch (error) {
     console.error("Error al obtener datos:", error);
   }
-  // }, 2000);
+
 
   // Limpiar el intervalo cuando el cliente se desconecta
   socket.on("disconnect", () => {

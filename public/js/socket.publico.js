@@ -48,7 +48,7 @@ function quitarOrdenInterval(customers){
 
       }, 25000);
     }
-}
+};
 
 window.onload=()=>{
 socket.on("pedidos", imprimirOrdenes );
